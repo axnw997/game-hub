@@ -25,17 +25,13 @@ function App() {
         }}
       >
         <GridItem area="nav">
-          <NavBar/>
+          <NavBar />
         </GridItem>
         <Show above="md">
-          <GridItem area="aside" bg="papayawhip">
-            Aside
-          </GridItem>
+          <GridItem area="aside">Aside</GridItem>
         </Show>
 
-        <GridItem area="main" bg="blue.500">
-          Main
-        </GridItem>
+        <GridItem area="main">Main</GridItem>
       </Grid>
     </>
   );
