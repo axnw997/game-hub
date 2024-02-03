@@ -1,25 +1,12 @@
-import {
-  Button,
-  HStack,
-  Image,
-  Switch,
-  Text,
-  useColorMode,
-} from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
 import logo from "../assets/react.svg";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 export const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <HStack justify="space-between" padding="10px">
       <Image src={logo} boxSize="50px"></Image>
-      <Switch
-        colorScheme="green"
-        isChecked={colorMode === "dark"}
-        onChange={toggleColorMode}
-      >
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Switch>
+      <ColorModeSwitch />
     </HStack>
   );
 };
