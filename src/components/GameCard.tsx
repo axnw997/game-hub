@@ -1,7 +1,8 @@
 import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 import { Game } from "../hooks/useGame";
+import { GameIconList } from "./GameIconList";
 
-interface Props {
+export interface Props {
   game: Game;
 }
 
@@ -11,6 +12,7 @@ const GameCard = ({ game }: Props) => {
       <Image src={game.background_image} />
       <CardBody>
         <Heading fontSize="xl">{game.name}</Heading>
+        <GameIconList game={game} />
       </CardBody>
     </Card>
   );

@@ -15,11 +15,11 @@ const GameGrid = () => {
         xl:5
       }} spacing={10} padding={10}>
         {games.map((game) => (
-          <GameCard key={game.id} game={game}></GameCard>
+          <GameCard game={game} key={game.id}></GameCard>
         ))}
       </SimpleGrid>
     </div>
   );
-};
-
+}
+;
 export default GameGrid;
