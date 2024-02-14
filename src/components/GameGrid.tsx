@@ -3,13 +3,15 @@ import useGame from "../hooks/useGame";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 import { Genres } from "../hooks/useGenres";
+import { Platforms } from "../hooks/usePlatforms";
 
 interface Props {
   selectedGenre: Genres | null;
+  selectedPlatform: Platforms | null;
 }
 
-const GameGrid = ({ selectedGenre }: Props) => {
-  const { error, data, isLoading } = useGame(selectedGenre);
+const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
+  const { error, data, isLoading } = useGame(selectedGenre, selectedPlatform);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -26,7 +28,6 @@ const GameGrid = ({ selectedGenre }: Props) => {
         spacing={3}
         padding={10}
       >
-
         {isLoading &&
           skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
         {data.map((game) => (

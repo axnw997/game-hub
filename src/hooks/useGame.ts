@@ -1,5 +1,6 @@
 import useData from "./useData";
 import { Genres } from "./useGenres";
+import { Platforms } from "./usePlatforms";
 
 interface Platform {
   id: number;
@@ -15,8 +16,15 @@ export interface Game {
   metacritic: number;
 }
 
-const useGame = (selectedGenre: Genres | null) => {
-  return useData<Game>("/games", {params:{genres:selectedGenre?.id}}, [selectedGenre?.id]); //这里return的数据就是data, error 和 isloading
+const useGame = (
+  selectedGenre: Genres | null,
+  selectedPlatform: Platforms | null
+) => {
+  return useData<Game>(
+    "/games",
+    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
+    [selectedGenre?.id, selectedPlatform?.id]
+  ); //这里return的数据就是data, error 和 isloading
 };
 
 export default useGame;
