@@ -1,6 +1,5 @@
+import { GameQuery } from "../App";
 import useData from "./useData";
-import { Genres } from "./useGenres";
-import { Platforms } from "./usePlatforms";
 
 interface Platform {
   id: number;
@@ -16,14 +15,11 @@ export interface Game {
   metacritic: number;
 }
 
-const useGame = (
-  selectedGenre: Genres | null,
-  selectedPlatform: Platforms | null
-) => {
+const useGame = (gameQuery: GameQuery) => {
   return useData<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id } },
+    [gameQuery]
   ); //这里return的数据就是data, error 和 isloading
 };
 
