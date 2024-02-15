@@ -18,7 +18,14 @@ export interface Game {
 const useGame = (gameQuery: GameQuery) => {
   return useData<Game>(
     "/games",
-    { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id, ordering: gameQuery.sortOrder } },
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+        ordering: gameQuery.sortOrder,
+        search: gameQuery.searchText,
+      },
+    },
     [gameQuery]
   ); //这里return的数据就是data, error 和 isloading
 };
