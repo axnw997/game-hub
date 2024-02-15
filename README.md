@@ -1,3 +1,16 @@
+# Description
+A simple web app built with React (components, hooks), Typescript and chakara UI for styling. 
+
+The game data is fetched using the RAWG API. implementing filtering by platform, genre, and sorting by dates, scores, etc
+
+
+# to Start
+run "npm i"
+
+# Ref for deploy on github pags:
+https://github.com/gitname/react-gh-pages
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
