@@ -4,6 +4,7 @@ import { GameIconList } from "./GameIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
 import GameCardContainer from "./GameCardContainer";
+import Emoji from "./Emoji";
 
 export interface Props {
   game: Game;
@@ -15,11 +16,12 @@ const GameCard = ({ game }: Props) => {
       <Card>
         <Image src={getCroppedImageUrl(game.background_image)} />
         <CardBody>
-          <Heading fontSize="xl">{game.name}</Heading>
-          <HStack justify="space-between">
+          <HStack justify="space-between" marginBottom={3}>
             <GameIconList game={game} />
             <CriticScore score={game.metacritic}></CriticScore>
           </HStack>
+          <Heading fontSize="xl">{game.name}</Heading>
+            <Emoji rating={game.rating_top}></Emoji>
         </CardBody>
       </Card>
     </GameCardContainer>
